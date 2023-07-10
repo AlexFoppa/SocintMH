@@ -25,14 +25,14 @@ def get_insta_id(authorizationCode):
     print('Erro na solicitação POST:', response.text)
 
 def get_insta_profile(user_id, access_token):
-  url = 'https://graph.instagram.com/me/media/'
-
+  url = 'https://graph.instagram.com/'+str(user_id)
+  
   params = {
-    'fields': 'id,caption',
+    'fields': 'id,account_type,media_count,username',
     'access_token': access_token
   }
-  
-  response = requests.get(url, data=params )
+
+  response = requests.get(url, params=params)
 
   if response.status_code == 200:
     data = response.json()
@@ -41,14 +41,13 @@ def get_insta_profile(user_id, access_token):
     print('Erro na solicitação GET:', response.text)
 
 def get_insta_media(user_id, access_token):
-  url = 'https://graph.instagram.com/' + str(user_id)
-
+  url = 'https://graph.instagram.com/me/media'
   params = {
-    'fields': 'id,media_type,media_url,username,timestamp',
+    'fields': 'id,caption',
     'access_token': access_token
   }
   
-  response = requests.get(url, params=params )
+  response = requests.get(url, params=params)
 
   if response.status_code == 200:
     data = response.json()

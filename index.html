@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Minha Página</title>
+  <title>Cadastro de pessoa</title>
 </head>
 <body>
-  <header>
-    <h1>Socint MH</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h2>Dados</h2>
+  <form action="process_form.py" method="POST">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-  <main>
-    <section>
-      <h2>Seção 1</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed diam sed odio convallis pellentesque sed ac risus.</p>
-    </section>
+    <label for="doc">Documento:</label><br>
+    <input type="doc" id="doc" name="doc" required><br><br>
 
-    <section>
-      <h2>Seção 2</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed diam sed odio convallis pellentesque sed ac risus.</p>
-    </section>
-  </main>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
 
-  <footer>
-    <p>&copy; 2023 Minha Página. Todos os direitos reservados.</p>
-  </footer>
+    <label for="history">Prontuário:</label><br>
+    <textarea id="message" name="message" rows="8" cols="50" required></textarea><br><br>
+
+    <input type="submit" value="Enviar">
+  </form>
 </body>
 </html>

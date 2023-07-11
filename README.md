@@ -12,8 +12,15 @@ Integração com instagram: https://developers.facebook.com/docs/instagram-basic
 7 - Implementado método para coletar dados de perfil
 8 - implementado método para coletar dados do feed
 9 - aumenta a quantidade de campos extraídos do feed
+10 - cria form de mockup simulando inserção manual de prontuário
+11 - implementados modelos para person e para instatwin
+12 - implementados métodos de criação, inserção e consulta para person e para instatwin
+13 - Index atualizado com processo de captura de person e instatwin
+14 - criação de modelo, extração, database e inserção no index de arquivos do feed
+
 
 Se sobrar tempo:
 
 - tratamento de erros;
-- extração de albun
+- extração de albun;
+- fazer o form funcionar

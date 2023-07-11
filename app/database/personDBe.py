@@ -22,7 +22,7 @@ def clean_table():
 def insert_person(person):
     with conn:  
         c.execute("INSERT INTO persons (name, doc, email, history) VALUES (:name, :doc, :email, :history)", 
-                {'name':person.name, 'text':person.doc, 'email':person.email,'history':person.history})
+                {'name':person.name, 'doc':person.doc, 'email':person.email,'history':person.history})
         return c.lastrowid
 
 def get_all_persons():

@@ -20,13 +20,13 @@ def clean_table():
         c.execute("""DROP TABLE IF EXISTS instagramTwins""")
         create_table_instagramTwins()
 
-def insert_twin(person):
+def insert_twin(instagramTwin):
     with conn:  
-        c.execute("INSERT INTO instagramTwins (name, doc, email, history) VALUES (:name, :doc, :email, :history)", 
-                {'name':person.name, 'text':person.doc, 'email':person.exteemailnsion,'history':person.history})
+        c.execute("INSERT INTO instagramTwins (personId, instagramId, account_type, media_count, username) VALUES (:personId, :instagramId, :account_type, :media_count, :username)", 
+                {'personId':instagramTwin.personId, 'instagramId':instagramTwin.instagramId, 'account_type':instagramTwin.account_type,'media_count':instagramTwin.media_count,'username':instagramTwin.username})
         return c.lastrowid
 
-def get_all_persons():
+def get_all_twins():
     c.execute("SELECT * FROM instagramTwins")
     return c.fetchall()
 

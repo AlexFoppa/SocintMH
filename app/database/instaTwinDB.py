@@ -20,7 +20,7 @@ def clean_table():
         c.execute("""DROP TABLE IF EXISTS instagramTwins""")
         create_table_instagramTwins()
 
-def insert_person(person):
+def insert_twin(person):
     with conn:  
         c.execute("INSERT INTO instagramTwins (name, doc, email, history) VALUES (:name, :doc, :email, :history)", 
                 {'name':person.name, 'text':person.doc, 'email':person.exteemailnsion,'history':person.history})

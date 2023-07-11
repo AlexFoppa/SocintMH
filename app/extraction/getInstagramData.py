@@ -36,7 +36,7 @@ def get_insta_profile(user_id, access_token):
 
   if response.status_code == 200:
     data = response.json()
-    print(data)
+    return data
   else:
     print('Erro na solicitação GET:', response.text)
 
@@ -51,6 +51,6 @@ def get_insta_media(user_id, access_token):
 
   if response.status_code == 200:
     data = response.json()
-    print(data)
+    return data
   else:
     print('Erro na solicitação GET:', response.text)

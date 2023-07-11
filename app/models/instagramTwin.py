@@ -10,11 +10,12 @@ class InstagramTwin:
 
 class InstagramFeedPublication:
 
-    def __init__(self, personId, instagramId, caption, media_type, media_url, permalink, timestamp, username) -> None:
+    def __init__(self, personId, instagramId, caption, captionSentimentPolarity, media_type, media_url, permalink, timestamp, username) -> None:
         self.id = 0
         self.personId = personId
         self.instagramId = instagramId
         self.caption = caption
+        self.captionSentimentPolarity = captionSentimentPolarity
         self.media_type = media_type
         self.media_url = media_url
         self.permalink = permalink

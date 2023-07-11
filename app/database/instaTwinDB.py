@@ -20,6 +20,7 @@ def create_table_instagramTwins():
             personId INTEGER,
             instagramId INTEGER,
             caption text,
+            captionSentimentPolarity,
             media_type text,
             media_url text,
             permalink text,
@@ -41,8 +42,8 @@ def insert_twin(instagramTwin):
 
 def insert_publication(instagramFeedPublication):
     with conn:  
-        c.execute("INSERT INTO instagramFeedPublications (personId,instagramId,caption,media_type,media_url,permalink,timestamp,username) VALUES (:personId,:instagramId,:caption,:media_type,:media_url,:permalink,:timestamp,:username)", 
-                {'personId':instagramFeedPublication.personId, 'instagramId':instagramFeedPublication.instagramId, 'caption':instagramFeedPublication.caption,'media_type':instagramFeedPublication.media_type,'media_url':instagramFeedPublication.media_url,'permalink':instagramFeedPublication.permalink,'timestamp':instagramFeedPublication.timestamp,'username':instagramFeedPublication.username})
+        c.execute("INSERT INTO instagramFeedPublications (personId,instagramId,caption,captionSentimentPolarity,media_type,media_url,permalink,timestamp,username) VALUES (:personId,:instagramId,:caption,:captionSentimentPolarity,:media_type,:media_url,:permalink,:timestamp,:username)", 
+                {'personId':instagramFeedPublication.personId, 'instagramId':instagramFeedPublication.instagramId, 'caption':instagramFeedPublication.caption, 'captionSentimentPolarity': instagramFeedPublication.captionSentimentPolarity,'media_type':instagramFeedPublication.media_type,'media_url':instagramFeedPublication.media_url,'permalink':instagramFeedPublication.permalink,'timestamp':instagramFeedPublication.timestamp,'username':instagramFeedPublication.username})
         return c.lastrowid
 
 def get_all_twins():

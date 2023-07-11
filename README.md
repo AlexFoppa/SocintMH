@@ -17,6 +17,7 @@ Integração com instagram: https://developers.facebook.com/docs/instagram-basic
 12 - implementados métodos de criação, inserção e consulta para person e para instatwin
 13 - Index atualizado com processo de captura de person e instatwin
 14 - criação de modelo, extração, database e inserção no index de arquivos do feed
+15 - pip install vaderSentiment para adicionar capacidade de análise de sentimento
 
 
 Se sobrar tempo:

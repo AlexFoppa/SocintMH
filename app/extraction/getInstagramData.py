@@ -40,7 +40,7 @@ def get_insta_profile(user_id, access_token):
   else:
     print('Erro na solicitação GET:', response.text)
 
-def get_insta_media(user_id, access_token):
+def get_insta_media(access_token):
   url = 'https://graph.instagram.com/me/media'
   params = {
     'fields': 'id,caption,is_shared_to_feed,media_type,media_url,permalink,thumbnail_url,timestamp,username',

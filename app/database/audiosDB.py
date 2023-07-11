@@ -22,7 +22,7 @@ def create_table():
             size text
             )""")
     
-def clean_table():
+def clean_table_audio():
     with conn:
         c.execute("""DROP TABLE IF EXISTS audios""")
         create_table()

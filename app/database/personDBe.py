@@ -14,7 +14,7 @@ def create_table_person():
             history text 
             )""")
 
-def clean_table():
+def clean_table_person():
     with conn:
         c.execute("""DROP TABLE IF EXISTS persons""")
         create_table_person()

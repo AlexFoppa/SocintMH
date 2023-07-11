@@ -1,15 +1,15 @@
 
-from app.database.instaTwinDB import create_table_instagramTwins, get_all_twins, insert_twin
-from app.database.personDBe import create_table_person, get_all_persons, insert_person
+from app.database.instaTwinDB import clean_tables_instagram, create_table_instagramTwins, get_all_pubs, get_all_twins, insert_publication, insert_twin
+from app.database.personDBe import clean_table_person, create_table_person, get_all_persons, insert_person
 from app.models.person import Person
-from app.models.instagramTwin import InstagramTwin
+from app.models.instagramTwin import InstagramFeedPublication, InstagramTwin
 from app.extraction.getInstagramData import get_insta_profile, get_insta_id, get_insta_media
 import cgi
 
 form = cgi.FieldStorage()
 
-#create_table_instagramTwins()
-#create_table_person()
+clean_table_person()
+clean_tables_instagram()
 
 if 'submit' in form:
     name = form.getvalue('name')
@@ -57,7 +57,21 @@ else:
     print(get_all_twins())
     print('---------------------------------------------')
 
-    insta_media = get_insta_media(user_id, access_token)
-    print(insta_media)
+    insta_media = get_insta_media(access_token)
 
+    for pub in insta_media["data"]:
+        feed_publication = InstagramFeedPublication(
+            personId=personId,
+            instagramId = pub["id"],
+            caption = pub["caption"],
+            media_type = pub["media_type"],
+            media_url = pub["media_url"],
+            permalink = pub["permalink"],
+            timestamp = pub["timestamp"],
+            username = pub["username"]
+            )
+        insert_publication(feed_publication)
 
+    print('---------------------------------------------')     
+    print(get_all_pubs())
+    print('---------------------------------------------')

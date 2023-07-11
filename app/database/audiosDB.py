@@ -1,7 +1,7 @@
 
 import sqlite3
 
-conn = sqlite3.connect('audio.db', check_same_thread=False)
+conn = sqlite3.connect('socintmh.db', check_same_thread=False)
 
 c = conn.cursor()
 
@@ -21,7 +21,7 @@ def create_table():
             modificationDate text,
             size text
             )""")
-
+    
 def clean_table():
     with conn:
         c.execute("""DROP TABLE IF EXISTS audios""")

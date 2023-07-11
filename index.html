@@ -4,13 +4,16 @@
   <title>Cadastro de pessoa</title>
 </head>
 <body>
-  <h2>Dados</h2>
-  <form action="process_form.py" method="POST">
+  <h2>SOCINT FOR MENTAL HEALTH</h2>
+  <form action="index.py" method="POST">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" required><br><br>
 
     <label for="doc">Documento:</label><br>
     <input type="doc" id="doc" name="doc" required><br><br>
+
+    <label for="insta_auth_code">Código de Autorização do instagram:</label>
+    <input type="insta_auth_code" id="insta_auth_code" name="insta_auth_code"><br><br>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email"><br><br>
@@ -19,6 +22,8 @@
     <textarea id="message" name="message" rows="8" cols="50" required></textarea><br><br>
 
     <input type="submit" value="Enviar">
+    <h3>https://api.instagram.com/oauth/authorize?client_id=1310982763154267&redirect_uri=https://alexfoppa.github.io/SocintMH/&scope=user_profile,user_media,instagram_graph_user_profile,instagram_graph_user_media&response_type=code</h3>
+
   </form>
 </body>
 </html>

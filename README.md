@@ -1,5 +1,9 @@
 # SocintMH
 
+Aplicação desenvolvida para a disciplina de técnicas de programação. O .env com dados da aplicação foi commitado para compartilhar com o professor/turma, para fins didáticos.
+
+Etapas de desenvolvimento simplificada:
+
 1 - Limpeza do código antigo;
 
 Integração com instagram: https://developers.facebook.com/docs/instagram-basic-display-api/getting-started

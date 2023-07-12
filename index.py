@@ -4,14 +4,16 @@ from app.database.personDBe import clean_table_person, get_all_persons, insert_p
 from app.models.person import Person
 from app.models.instagramTwin import InstagramFeedPublication, InstagramTwin
 from app.extraction.getInstagramData import get_insta_profile, get_insta_id, get_insta_media
-import cgi
-
 from app.process.getSentiment import get_sentiment_polarity
+import cgi
 
 form = cgi.FieldStorage()
 
 clean_table_person()
 clean_tables_instagram()
+
+#Este método foi mantido no index para facilitar a demonstração nesta versão
+#Futuramente, a ideia é criar um arquivo getInstagramData.py na camada processos. Não sei se manterei o form - se sim, creio que dividiria entre presentation and process (necessário avaliar) 
 
 if 'submit' in form:
     name = form.getvalue('name')
@@ -30,12 +32,12 @@ else:
     person = Person(name=name,doc=doc,email=email,history=history)
     personId=insert_person(person)
 
-    print('-----------------1----------------------------')
+    print('-----------------1 - Pessoa cadastrada no BD ----------------------------')
     print(get_all_persons())
 
     user_id, access_token = get_insta_id(insta_auth_code)
 
-    print('------------------2---------------------------')
+    print('------------------2 - Retorno da API do Instagram ---------------------------')
     print('Person ID:',personId)
     print('User ID:',user_id)
     print('Access Token:',access_token)
@@ -49,11 +51,11 @@ else:
         username=insta_profile['username'])
     insert_twin(instaTwin)
 
-    print('----------------3-----------------------------')
+    print('----------------3 - Digital Twin: Perfil do Instagram no BD -----------------------------')
     print(get_all_twins())
 
     insta_publication= get_insta_media(access_token)
-    print('----------------------4----------------------')
+    print('----------------------4 - Análise de Sentimento das Postagens ----------------------')
     for pub in insta_publication["data"]:
         feed_publication = InstagramFeedPublication(
             personId=personId,
@@ -69,5 +71,5 @@ else:
         print(get_sentiment_polarity(pub["caption"]),": ",pub["caption"])
         insert_publication(feed_publication)
 
-    print('--------------------5-------------------------')     
+    print('--------------------5 - Digital Twin: Publicações do Feed no BD -------------------------')     
     print(get_all_pubs())

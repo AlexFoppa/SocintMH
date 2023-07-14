@@ -1,6 +1,6 @@
 
 from app.database.instaTwinDB import clean_tables_instagram, get_all_pubs, get_all_twins, insert_publication, insert_twin
-from app.database.personDB import clean_table_person, get_all_persons, insert_person
+from app.database.personDB import clean_table_person, get_all_persons, get_person_by_name, insert_person
 from app.models.person import Person
 from app.models.instagramTwin import InstagramFeedPublication, InstagramTwin
 from app.extraction.getInstagramData import get_insta_profile, get_insta_id, get_insta_media
@@ -25,7 +25,7 @@ if 'submit' in form:
 else:
     name = 'Alexandre'
     doc = '123456'
-    insta_auth_code = ''
+    insta_auth_code = 'AQDUpCKLc9YCzTZ8tTZg30OYWJAjhy9Yc78ioRcnHd5lCRTlIy26-cccUFA7G0xOXpSaP60n_KsCkBy3CUhqElqPEHLkpn7L67QKaOBgfE4RuvW8fsEHH7tHsEdOoMc1yAUy_DAaSPs3h-2YP_Hf0JfmuVPVSurYuLToN8-c2KFmg5s9t5lO4WCpr-RPx9yp08StCxHMs_TJq57aL0Ko55CidwIrpiM6Vo3zfymR1Zo6-A'
     history = 'sintoma 1 e 2'
     email = 'oi@gmail.com'
 
@@ -73,3 +73,12 @@ for pub in insta_publication["data"]:
 
 print('--------------------5 - Digital Twin: Publicações do Feed no BD -------------------------')     
 print(get_all_pubs())
+print('--------------------6 - Consulta aos dados da pessoa -------------------------')     
+
+person = get_person_by_name('Alexandre')[0]
+person = Person(id=person[0],name=person[1],doc=person[2],email=person[3],history=person[4])
+
+print('Pede os dados da pessoa sem argumento:', person.get_person_data())
+print('Pede os dados da pessoa pedindo pelo Instagram', person.get_person_data('Instagram'))
+print('Pede os dados da pessoa pedindo pelo Facebook', person.get_person_data('Facebook'))
+print('Pede todos os dados da pessoa',person.get_person_and_twins_data())

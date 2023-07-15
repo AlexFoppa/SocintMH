@@ -1,6 +1,6 @@
 
-from app.database.instaTwinDB import clean_tables_instagram, get_all_pubs, get_all_twins, insert_publication, insert_twin
-from app.database.personDB import clean_table_person, get_all_persons, get_person_by_name, insert_person
+from app.database.instaTwinDB import clean_tables_instagram, insert_publication, insert_twin
+from app.database.personDB import clean_table_person, insert_person
 from app.models.person import Person
 from app.models.instagramTwin import InstagramFeedPublication, InstagramTwin
 from app.extraction.getInstagramData import get_insta_profile, get_insta_id, get_insta_media
